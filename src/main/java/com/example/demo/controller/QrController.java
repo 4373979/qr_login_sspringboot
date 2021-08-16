@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.utils.QrCodeUtils;
+import com.power.common.util.UUIDUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,10 +18,8 @@ public class QrController {
         StringBuffer url = request.getRequestURL();
         try {
             OutputStream os = response.getOutputStream();
-            //从配置文件读取需要生成二维码的连接
-//            String requestUrl = GraphUtils.getProperties("requestUrl");
-            //requestUrl:需要生成二维码的连接，logoPath：内嵌图片的路径，os：响应输出流，needCompress:是否压缩内嵌的图片
-            QrCodeUtils.encode("http://www.baidu.com", "/static/images/1.png", os, true);
+//            QrCodeUtils.encode("http://www.baidu.com", "/static/img/1.png", os, true);
+            QrCodeUtils.encode(UUIDUtil.getUuid32(), "/static/img/1.png", os, true);
         } catch (Exception e) {
             e.printStackTrace();
         }

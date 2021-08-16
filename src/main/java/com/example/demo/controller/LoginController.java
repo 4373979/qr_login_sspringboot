@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Login;
 import com.example.demo.service.LoginService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,12 +32,13 @@ public class LoginController{
         return "login";
     }
 
-//    @GetMapping("/select")
-//    public Login getLogin(@Param("userName") String userName ){
-//
-//        return loginService.getLogin(userName);
-//
-//    }
+    @GetMapping("/select")
+    @ResponseBody
+    public Login getLogin(@Param("userName") String userName ){
+
+        return loginService.getLogin(userName);
+
+    }
 
     @GetMapping("/loginError")
     public String loginError(){
@@ -51,8 +53,8 @@ public class LoginController{
             model.addAttribute(SESSION_KEY,userName);
             return "view/index";
         }else{
-            return "redirect:/loginError";
-        }
+        return "redirect:/loginError";
+    }
     }
 
     @PostMapping("/phoneLoginVerify")
@@ -62,11 +64,12 @@ public class LoginController{
     }
 
 
-//    @PostMapping("/loginVerify")
-//    public Login toLogin(@RequestBody Login login){
-//        System.out.println(login.getUserName()+":"+login.getUserPass());
-//        return loginService.toLogin(login.getUserName(), login.getUserPass());
-//    }
+    @PostMapping("/user/login")
+    @ResponseBody
+    public Login toLogin(@RequestBody Login login){
+        System.out.println(login.getUserName()+":"+login.getUserPass());
+        return loginService.toLogin(login.getUserName(), login.getUserPass());
+    }
 
 
 }
