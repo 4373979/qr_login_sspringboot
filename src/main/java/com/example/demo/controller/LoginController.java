@@ -58,7 +58,9 @@ public class LoginController{
     }
 
     @PostMapping("/phoneLoginVerify")
+    @ResponseBody
     public Login phoneLogin(@RequestBody Login login){
+        System.out.println("11111111111111111111111111111111111"+login.getUsername()+":"+ login.getPassword());
         Login userLogin = loginService.toLogin(login.getUsername(), login.getPassword());
         return userLogin;
     }
