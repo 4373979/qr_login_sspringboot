@@ -15,13 +15,13 @@ public class LoginServiceImpl implements LoginService {
 
 
     @Override
-    public Login getLogin(String userName){
-        return loginMapper.getLogin(userName);
+    public Login getLogin(String username){
+        return loginMapper.getLogin(username);
     }
 
     //登录
     @Override
-    public Login toLogin(String userName, String userPass) {
-        return loginMapper.toLogin(userName, userPass);
+    public Login toLogin(String username, String password) {
+        return loginMapper.toLogin(username, password);
     }
 }

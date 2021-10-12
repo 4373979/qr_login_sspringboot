@@ -59,16 +59,22 @@ public class LoginController{
 
     @PostMapping("/phoneLoginVerify")
     public Login phoneLogin(@RequestBody Login login){
-        Login userLogin = loginService.toLogin(login.getUserName(), login.getUserPass());
+        Login userLogin = loginService.toLogin(login.getUsername(), login.getPassword());
         return userLogin;
     }
 
 
+    @GetMapping("/user/login")
+    @ResponseBody
+    public String toLogin(){
+        return "{username:test, password:123456}";
+    }
+
     @PostMapping("/user/login")
     @ResponseBody
-    public Login toLogin(@RequestBody Login login){
-        System.out.println(login.getUserName()+":"+login.getUserPass());
-        return loginService.toLogin(login.getUserName(), login.getUserPass());
+    public String toLogin2(@RequestBody Login login){
+        System.out.println(login.getUsername()+":"+login.getPassword());
+        return "{username:test, password:123456}";
     }
 
 

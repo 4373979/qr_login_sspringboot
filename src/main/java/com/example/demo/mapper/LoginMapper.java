@@ -13,9 +13,9 @@ public interface LoginMapper {
      根据userName查找用户信息对比账号是否注册如存此账号证明已注册
      则根据用户前台输入的密码与数据库密码进行对比
   * */
-    @Select("SELECT * FROM t_user WHERE username=#{userName}")
-    Login getLogin(@Param("userName") String userName);
+    @Select("SELECT * FROM t_user WHERE username=#{username}")
+    Login getLogin(@Param("username") String username);
 
-    @Select("select * from t_user where username = #{userName} and  userpass = #{userPass}")
-    Login toLogin(@Param("userName") String userName, @Param("userPass")String userPass);
+    @Select("select * from t_user where username = #{username} and  password = #{password}")
+    Login toLogin(@Param("username") String username, @Param("password")String password);
 }

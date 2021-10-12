@@ -8,10 +8,10 @@ public interface LoginService {
     /*
      * 根据userName查找用户信息
      * */
-    Login getLogin(String userName);
+    Login getLogin(String username);
 
     /*
      * 根据userName查找用户信息
      * */
-    Login toLogin(String userName,String userPass);
+    Login toLogin(String username,String password);
 }

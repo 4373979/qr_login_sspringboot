@@ -24,5 +24,4 @@ public class QrController {
             e.printStackTrace();
         }
     }
-
 }

@@ -2,9 +2,10 @@ package com.example.demo.entity;
 
 
 public class Login {
+
     private Integer id;
-    private String userName;
-    private String userPass;
+    private String username;
+    private String password;
 
     public Integer getId() {
         return id;
@@ -14,28 +15,28 @@ public class Login {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserPass() {
-        return userPass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPass(String userPass) {
-        this.userPass = userPass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "Login{" +
                 "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", userPass='" + userPass + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
