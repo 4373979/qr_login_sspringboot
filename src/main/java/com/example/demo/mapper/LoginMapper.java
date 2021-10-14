@@ -16,6 +16,6 @@ public interface LoginMapper {
     @Select("SELECT * FROM t_user WHERE username=#{username}")
     Login getLogin(@Param("username") String username);
 
-    @Select("select * from t_user where username = #{username} and  password = #{password}")
-    Login toLogin(@Param("username") String username, @Param("password")String password);
+    @Select("select * from t_user where username = #{login.username} and  password = #{login.password}")
+    Login toLogin(@Param("login") Login login);
 }

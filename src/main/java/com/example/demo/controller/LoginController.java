@@ -45,23 +45,23 @@ public class LoginController{
         return "loginError";
     }
 
-    @PostMapping("/webLoginVerify")
-    public String webLogin(@RequestParam("userName") String userName, @RequestParam("userPass") String userPass, Model model){
-        Login userLogin = loginService.toLogin(userName, userPass);
-        if (userLogin!=null){
-            session.setAttribute(SESSION_KEY,userName);
-            model.addAttribute(SESSION_KEY,userName);
-            return "view/index";
-        }else{
-        return "redirect:/loginError";
-    }
-    }
+//    @PostMapping("/webLoginVerify")
+//    public String webLogin(@RequestParam("userName") String userName, @RequestParam("userPass") String userPass, Model model){
+//        Login userLogin = loginService.toLogin(userName, userPass);
+//        if (userLogin!=null){
+//            session.setAttribute(SESSION_KEY,userName);
+//            model.addAttribute(SESSION_KEY,userName);
+//            return "view/index";
+//        }else{
+//        return "redirect:/loginError";
+//    }
+//    }
 
     @PostMapping("/phoneLogin")
     @ResponseBody
     public Login phoneLogin(@RequestBody Login login){
         System.out.println("phoneLogin:    "+login.toString());
-        Login userLogin = loginService.toLogin(login.getUsername(), login.getPassword());
+        Login userLogin = loginService.toLogin(login);
         return userLogin;
     }
 

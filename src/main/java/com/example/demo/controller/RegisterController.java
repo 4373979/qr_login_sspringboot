@@ -18,10 +18,10 @@ public class RegisterController {
     @ResponseBody
     public Integer toRegister(@RequestBody Login login){
         System.out.println("Register:    "+login.toString());
-        return registerService.toRegister(login.getUsername(),login.getPassword());
-
+        Integer i = registerService.toRegister(login);
+        System.out.println("i:"+i);
+        return i;
     }
-
 
 }
 

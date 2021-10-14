@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.entity.Login;
 import com.example.demo.mapper.LoginMapper;
 import com.example.demo.service.LoginService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -21,7 +22,7 @@ public class LoginServiceImpl implements LoginService {
 
     //登录
     @Override
-    public Login toLogin(String username, String password) {
-        return loginMapper.toLogin(username, password);
+    public Login toLogin(@Param("login") Login login) {
+        return loginMapper.toLogin(login);
     }
 }
